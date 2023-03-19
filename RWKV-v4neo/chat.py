@@ -27,7 +27,7 @@ UNKNOWN_CHAR = None
 tokenizer = TOKENIZER(WORD_NAME, UNKNOWN_CHAR=UNKNOWN_CHAR)
 
 args = types.SimpleNamespace()
-args.RUN_DEVICE = "cuda" torch.cuda.is_available() else "cpu"  # 'cpu' (already very fast) // 'cuda'
+args.RUN_DEVICE = "cuda" if torch.cuda.is_available() else "cpu"  # 'cpu' (already very fast) // 'cuda'
 args.FLOAT_MODE = "fp16" # fp32 (good for CPU) // fp16 (recommended for GPU) // bf16 (less accurate)
 args.vocab_size = 50277
 args.head_qk = 0
