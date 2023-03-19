@@ -35,13 +35,13 @@ args.pre_ffn = 0
 args.grad_cp = 0
 args.my_pos_emb = 0
 
-args.MODEL_NAME = '/content/RWKV-4-Pile-14B-20230313-ctx8192-test1050.pth'
+args.MODEL_NAME = '/content/RWKV-4-Pile-14B-20230313-ctx8192-test1050'
 args.n_layer = 40
 args.n_embd = 5120
 args.ctx_len = 8192
 
 # Modify this to use LoRA models; lora_r = 0 will not use LoRA weights.
-args.MODEL_LORA = '/content/rwkv-4-14B-alpaca-finetune-lora-weights-20(8k).pth'
+args.MODEL_LORA = '/content/rwkv-4-14B-alpaca-finetune-lora-weights-20(8k)'
 args.lora_r = 8
 args.lora_alpha = 32
 
