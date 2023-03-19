@@ -27,7 +27,7 @@ UNKNOWN_CHAR = None
 tokenizer = TOKENIZER(WORD_NAME, UNKNOWN_CHAR=UNKNOWN_CHAR)
 
 args = types.SimpleNamespace()
-args.RUN_DEVICE = "cuda"  # 'cpu' (already very fast) // 'cuda'
+args.RUN_DEVICE = "cuda" torch.cuda.is_available() else "cpu"  # 'cpu' (already very fast) // 'cuda'
 args.FLOAT_MODE = "fp16" # fp32 (good for CPU) // fp16 (recommended for GPU) // bf16 (less accurate)
 args.vocab_size = 50277
 args.head_qk = 0
@@ -35,24 +35,17 @@ args.pre_ffn = 0
 args.grad_cp = 0
 args.my_pos_emb = 0
 
-args.MODEL_NAME = '/home/blealtancao/rwkv-models/RWKV-4-Pile-14B-20230227-ctx4096-test503'
+args.MODEL_NAME = '/content/RWKV-4-Pile-14B-20230313-ctx8192-test1050.pth'
 args.n_layer = 40
 args.n_embd = 5120
-args.ctx_len = 1024
+args.ctx_len = 8192
 
 # Modify this to use LoRA models; lora_r = 0 will not use LoRA weights.
-args.MODEL_LORA = '/home/blealtancao/rwkv-models/lora-full-1e-4/rwkv-33'
-args.lora_r = 0
-args.lora_alpha = 16
+args.MODEL_LORA = '/content/rwkv-4-14B-alpaca-finetune-lora-weights-20(8k).pth'
+args.lora_r = 8
+args.lora_alpha = 32
 
-# args.MODEL_NAME = '/fsx/BlinkDL/HF-MODEL/rwkv-4-pile-7b/RWKV-4-Pile-7B-20221115-8047'
-# args.n_layer = 32
-# args.n_embd = 4096
-# args.ctx_len = 1024
 
-# args.MODEL_NAME = '/fsx/BlinkDL/HF-MODEL/rwkv-4-pile-3b/RWKV-4-Pile-3B-20221008-8023'
-# args.n_layer = 32
-# args.n_embd = 2560
 # args.ctx_len = 1024
 
 if CHAT_LANG == 'English':
